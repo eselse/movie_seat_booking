@@ -4,7 +4,7 @@ const total = document.getElementById("total");
 const count = document.getElementById("count");
 const movieSelect = document.getElementById("movie");
 // const ticketPrice = +movieSelect.value;
-let ticketPrice = parseInt(movieSelect.value);
+let ticketPrice = +movieSelect.value;
 
 populateUI();
 
@@ -46,7 +46,6 @@ function populateUI() {
   const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
 
   if (selectedMovieIndex !== null) {
-    const selectedMoviePrice = localStorage.getItem("selectedMoviePrice");
     movieSelect.selectedIndex = selectedMovieIndex;
   }
 }
@@ -55,7 +54,7 @@ function populateUI() {
 movieSelect.addEventListener("change", (e) => {
   setMovieData(e.target.selectedIndex, e.target.value);
   // ticketPrice = +e.target.value
-  ticketPrice = parseInt(e.target.value);
+  ticketPrice = +e.target.value;
   updateSelectedCount();
 });
 
